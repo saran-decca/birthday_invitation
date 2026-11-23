@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Birthday Gayathri 💖</title>
+<meta name="description" content="A little birthday surprise for Gayathri">
+<meta name="theme-color" content="#2b2350">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@800&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Great+Vibes&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --rose:#c95d7a; --rose-deep:#a8435f; --blush:#fde9ee; --gold:#d9b06a; --gold-soft:#f4dca8;
+    --ink:#4b2a3a; --cream:#fffaf2; --skin:#ffe3d3; --skin-sh:#f6c9b4; --line:#6e3a4c;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{overflow-x:hidden}
+  body{font-family:'Quicksand',system-ui,sans-serif; color:#fff; background:#2b2350; -webkit-tap-highlight-color:transparent}
+
+  /* ---------------- Start overlay ---------------- */
+  #start{
+    position:fixed; inset:0; z-index:60; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:14px; text-align:center; padding:24px;
+    background:radial-gradient(ellipse at 50% 35%,#5b3f7e 0%,#2b2350 55%,#171331 100%);
+    transition:opacity 1s ease, visibility 1s;
+  }
+  #start.hide{opacity:0; visibility:hidden}
+  #start .small{font-family:'Cormorant Garamond',serif; font-style:italic; font-size:22px; color:#f3dfe8; opacity:.9}
+  #start .name{font-family:'Great Vibes',cursive; font-size:clamp(64px,17vw,110px); line-height:1.05; padding:0 10px}
+  .foil{background:linear-gradient(100deg,#e8c27a 0%,#fff4d6 25%,#e7b56b 45%,#fbe3b0 65%,#d9a356 100%);
+    background-size:200% auto; -webkit-background-clip:text; background-clip:text; color:transparent; animation:shine 6s linear infinite}
+  @keyframes shine{to{background-position:200% center}}
+  #startBtn{
+    margin-top:18px; cursor:pointer; font:600 17px 'Quicksand',sans-serif; color:#fff; letter-spacing:.04em;
+    padding:15px 34px; border-radius:999px; border:1px solid rgba(255,230,200,.55);
+    background:linear-gradient(135deg,rgba(255,255,255,.18),rgba(255,255,255,.05)); backdrop-filter:blur(8px);
+    box-shadow:0 0 0 0 rgba(244,220,168,.5), inset 0 1px 0 rgba(255,255,255,.3); animation:ring 2.2s ease-out infinite;
+  }
+  @keyframes ring{0%{box-shadow:0 0 0 0 rgba(244,220,168,.45), inset 0 1px 0 rgba(255,255,255,.3)} 100%{box-shadow:0 0 0 22px rgba(244,220,168,0), inset 0 1px 0 rgba(255,255,255,.3)}}
+  #start .hint{font-size:13px; color:#d9c8e6; opacity:.75}
+  .divider{width:120px; height:1px; background:linear-gradient(90deg,transparent,var(--gold-soft),transparent)}
+
+  /* ---------------- Mute ---------------- */
+  #mute{position:fixed; top:14px; right:14px; z-index:45; width:42px; height:42px; border-radius:50%;
+    border:1px solid rgba(255,255,255,.35); background:rgba(255,255,255,.12); backdrop-filter:blur(8px);
+    color:#fff; font-size:18px; cursor:pointer; display:none}
+  #mute.show{display:grid; place-items:center}
+
+  /* ---------------- Petals (whole page) ---------------- */
+  .petals{position:fixed; inset:0; pointer-events:none; z-index:20; overflow:hidden}
+  .petal{position:absolute; top:-30px; animation:fall linear infinite}
+  .petal i{display:block; width:12px; height:9px; border-radius:100% 0 100% 0;
+    background:linear-gradient(135deg,#ffe3ea,#f7a6bd); box-shadow:0 0 6px rgba(255,190,210,.4); animation:flutter ease-in-out infinite alternate}
+  @keyframes fall{0%{transform:translate(0,0)} 25%{transform:translate(30px,27vh)} 50%{transform:translate(-20px,55vh)} 75%{transform:translate(25px,82vh)} 100%{transform:translate(-10px,110vh)}}
+  @keyframes flutter{from{transform:rotate(0) rotateX(0)} to{transform:rotate(200deg) rotateX(70deg)}}
+
+  /* ---------------- Scene ---------------- */
+  .scene{position:relative; height:100vh; height:100svh; min-height:600px; overflow:hidden;
+    background:linear-gradient(180deg,#221d45 0%,#3d3170 22%,#7a4f8f 45%,#c97a9a 64%,#f2ab9f 78%,#ffd6b5 90%)}
+  .star{position:absolute; border-radius:50%; background:#fff; animation:twinkle ease-in-out infinite}
+  @keyframes twinkle{50%{opacity:.15; transform:scale(.5)}}
+  .moon{position:absolute; top:34%; left:12%; width:46px; height:46px; border-radius:50%;
+    box-shadow:inset -11px 5px 0 0 #fff2cf; filter:drop-shadow(0 0 14px rgba(255,236,180,.7)); transform:rotate(-20deg)}
+  .bokeh{position:absolute; border-radius:50%; filter:blur(18px); opacity:.35; animation:float 9s ease-in-out infinite alternate}
+  @keyframes float{to{transform:translate(20px,-25px)}}
+
+  /* fairy lights */
+  .lights{position:absolute; top:0; left:0; right:0; height:76px; z-index:3}
+  .lights svg{position:absolute; inset:0; width:100%; height:100%}
+  .bulb{position:absolute; width:9px; height:12px; margin:-2px 0 0 -4.5px; border-radius:50% 50% 50% 50%/60% 60% 40% 40%;
+    animation:glow 2.4s ease-in-out infinite alternate}
+  .bulb::before{content:""; position:absolute; top:-3px; left:2.5px; width:4px; height:4px; background:#5a4a6a; border-radius:1px}
+  @keyframes glow{from{opacity:.55; filter:brightness(.8)} to{opacity:1; filter:brightness(1.2)}}
+
+  .title{position:absolute; top:12%; width:100%; text-align:center; padding:0 16px; z-index:5;
+    opacity:0; transform:translateY(-10px); transition:all 1.4s ease}
+  .title.show{opacity:1; transform:none}
+  .title .hb{font-family:'Cormorant Garamond',serif; font-weight:600; font-size:clamp(15px,3.8vw,22px); letter-spacing:.45em;
+    text-transform:uppercase; color:#fbe7ef; padding-left:.45em}
+  .title .nm{font-family:'Great Vibes',cursive; font-size:clamp(66px,15vw,128px); line-height:1.1;
+    filter:drop-shadow(0 3px 14px rgba(255,190,140,.35))}
+  .title .sub{font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(18px,4.4vw,24px); color:#fff3f6;
+    opacity:0; transform:translateY(8px); transition:all 1.2s ease .3s; text-shadow:0 2px 10px rgba(90,40,80,.4)}
+  .title .sub.show{opacity:1; transform:none}
+
+  .hills{position:absolute; left:0; right:0; bottom:0; height:34%; z-index:1}
+  .hills svg{position:absolute; bottom:0; width:100%; height:100%}
+  .firefly{position:absolute; z-index:4; width:4px; height:4px; border-radius:50%; background:#fff6c2;
+    box-shadow:0 0 8px 3px rgba(255,240,160,.7); animation:fly ease-in-out infinite alternate}
+  @keyframes fly{0%{transform:translate(0,0); opacity:.2} 50%{opacity:1} 100%{transform:translate(18px,-26px); opacity:.3}}
+
+  /* "30" foil balloons */
+  .sign{position:absolute; right:5%; bottom:11%; z-index:3; width:clamp(150px,30vw,280px)}
+  .sign svg{display:block; width:100%; height:auto; overflow:visible}
+  .sign .float{animation:bob 3.4s ease-in-out infinite; transform-box:fill-box}
+  @keyframes bob{50%{transform:translateY(-9px) rotate(1.5deg)}}
+  .sign .shine{animation:sweep 4.5s ease-in-out infinite}
+  @keyframes sweep{0%{transform:translateX(-320px)} 60%,100%{transform:translateX(320px)}}
+  .sign .halo{opacity:0; transition:opacity 1.2s}
+  .sign.lit .halo{opacity:1}
+
+  /* Girl */
+  .girl{position:absolute; left:0; bottom:12.5%; z-index:4; width:clamp(86px,13vw,128px); transform-origin:50% 100%; transform:translateX(-200px)}
+  .girl svg{display:block; width:100%; height:auto; overflow:visible}
+  .age{position:absolute; left:50%; bottom:100%; transform:translateX(-50%); margin-bottom:8px; white-space:nowrap;
+    font:700 14px 'Quicksand',sans-serif; color:var(--rose-deep); background:rgba(255,250,245,.92); padding:3px 12px; border-radius:999px;
+    box-shadow:0 4px 14px rgba(80,30,60,.2); opacity:0; transition:opacity .6s}
+  .age b{font-family:'Baloo 2',sans-serif; font-size:16px}
+  .age.show{opacity:1}
+  .age::after{content:""; position:absolute; left:50%; top:100%; transform:translateX(-50%); border:6px solid transparent; border-top-color:rgba(255,250,245,.92)}
+
+  .girl svg *{transform-box:view-box}
+  .leg-l{transform-origin:52px 140px} .leg-r{transform-origin:68px 140px}
+  .arm-f{transform-origin:44px 100px} .arm-b{transform-origin:76px 100px}
+  .hair-back{transform-origin:60px 30px} .eyes{transform-origin:60px 61px; animation:blink 4.5s infinite}
+  .body{transform-origin:60px 200px}
+  @keyframes blink{0%,94%,100%{transform:scaleY(1)} 96%{transform:scaleY(.08)}}
+  .walking .leg-l{animation:swingA 1s ease-in-out infinite alternate}
+  .walking .leg-r{animation:swingB 1s ease-in-out infinite alternate}
+  .walking .arm-f{animation:swingB 1s ease-in-out infinite alternate}
+  .walking .arm-b{animation:swingA 1s ease-in-out infinite alternate}
+  .walking .body{animation:step .5s ease-in-out infinite alternate}
+  .walking .hair-back{animation:sway 1s ease-in-out infinite alternate}
+  @keyframes swingA{from{transform:rotate(18deg)} to{transform:rotate(-18deg)}}
+  @keyframes swingB{from{transform:rotate(-18deg)} to{transform:rotate(18deg)}}
+  @keyframes step{from{transform:translateY(0)} to{transform:translateY(-3.5px)}}
+  @keyframes sway{from{transform:rotate(-3deg)} to{transform:rotate(3deg)}}
+  .celebrate .arm-f{animation:wave .5s ease-in-out infinite alternate}
+  .celebrate .body{animation:hop .65s ease-out 3}
+  @keyframes wave{from{transform:rotate(150deg)} to{transform:rotate(118deg)}}
+  @keyframes hop{40%{transform:translateY(-20px)} 100%{transform:translateY(0)}}
+
+  .flower{position:absolute; z-index:2; font-size:clamp(14px,2.6vw,20px); transform:translate(-50%,0) scale(0); animation:pop .7s cubic-bezier(.3,1.8,.5,1) forwards}
+  @keyframes pop{to{transform:translate(-50%,0) scale(1)}}
+
+  .scroll-cue{position:absolute; bottom:3.5%; left:50%; transform:translateX(-50%); z-index:6; text-align:center; white-space:nowrap;
+    font-family:'Cormorant Garamond',serif; font-style:italic; font-size:19px; color:#fff; text-shadow:0 1px 8px rgba(40,70,40,.5);
+    opacity:0; transition:opacity 1s; pointer-events:none}
+  .scroll-cue span{display:block; font-style:normal; font-size:18px; animation:nudge 1.4s ease-in-out infinite}
+  .scroll-cue.show{opacity:1}
+  @keyframes nudge{50%{transform:translateY(6px)}}
+
+  /* ---------------- Invitation ---------------- */
+  .invite{position:relative; padding:70px 16px 110px; text-align:center; color:var(--ink);
+    background:linear-gradient(180deg,#7fae7c 0%,#cfe0b8 12%,#fbeee6 30%,var(--blush) 100%)}
+  .invite h2{font-family:'Great Vibes',cursive; font-weight:400; font-size:clamp(50px,12vw,70px); color:var(--rose); line-height:1.1}
+  .invite p.lead{font-family:'Cormorant Garamond',serif; font-style:italic; font-size:20px; color:#7a4a5c; margin:4px 0 clamp(150px,45vw,175px)}
+
+  .envelope{position:relative; width:min(340px,88vw); aspect-ratio:4/3; margin:0 auto; cursor:pointer; perspective:1400px;
+    animation:wiggle 3.2s ease-in-out infinite}
+  .envelope.open{animation:none; cursor:default}
+  @keyframes wiggle{0%,78%,100%{transform:rotate(0)} 83%{transform:rotate(-2.5deg)} 88%{transform:rotate(2.5deg)} 93%{transform:rotate(-1.5deg)}}
+  .env-back{position:absolute; inset:0; border-radius:10px; background:linear-gradient(180deg,#b7586f,#a14a61);
+    box-shadow:0 24px 50px rgba(161,74,97,.35), 0 6px 14px rgba(161,74,97,.25)}
+  .letter{position:absolute; left:5%; right:5%; top:5%; height:92%; z-index:2; border-radius:6px; background:var(--cream);
+    padding:16px 14px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px;
+    box-shadow:inset 0 0 0 6px var(--cream), inset 0 0 0 7px var(--gold-soft), 0 8px 24px rgba(0,0,0,.14)}
+  .env-front{position:absolute; inset:0; z-index:3; border-radius:10px; overflow:hidden;
+    clip-path:polygon(0 0,50% 50%,100% 0,100% 100%,0 100%); background:linear-gradient(160deg,#eeb0bc,#dc8d9e)}
+  .env-front::after{content:""; position:absolute; inset:0; clip-path:polygon(0 100%,50% 46%,100% 100%); background:linear-gradient(0deg,#e49aaa,#f2bcc6)}
+  .flap{position:absolute; left:0; right:0; top:0; height:56%; z-index:4; transform-origin:50% 0; transform-style:preserve-3d;
+    transition:transform .9s cubic-bezier(.6,0,.3,1), z-index 0s .45s}
+  .face{position:absolute; inset:0; clip-path:polygon(0 0,100% 0,50% 100%); backface-visibility:hidden; -webkit-backface-visibility:hidden; border-radius:10px 10px 0 0}
+  .face.out{background:linear-gradient(180deg,#f6c4cd,#e39aa9)}
+  .face.in{transform:rotateX(180deg); background:#fff4ec radial-gradient(#eab0bc 1.3px,transparent 1.6px) 0 0/11px 11px}
+  .seal{position:absolute; left:50%; top:100%; transform:translate(-50%,-62%) translateZ(1px); width:50px; height:50px;
+    border-radius:52% 48% 50% 50%/48% 52% 48% 52%; display:grid; place-items:center;
+    background:radial-gradient(circle at 38% 32%,#d8566d,#8e1f35 70%); box-shadow:0 3px 8px rgba(80,0,20,.35), inset 0 -3px 6px rgba(0,0,0,.25), inset 0 2px 4px rgba(255,255,255,.25);
+    font:italic 600 26px 'Cormorant Garamond',serif; color:#f7c9cf; text-shadow:0 -1px 0 rgba(0,0,0,.35); transition:opacity .3s}
+  .seal::before{content:""; position:absolute; inset:5px; border-radius:50%; border:1.5px dashed rgba(255,210,215,.35)}
+  .open .flap{transform:rotateX(180deg); z-index:1}
+  .open .seal{opacity:0}
+  .open .letter{animation:pull 1.7s cubic-bezier(.5,0,.3,1) .75s forwards}
+  @keyframes pull{
+    0%{transform:translateY(0); z-index:2}
+    50%{transform:translateY(-92%); z-index:2}
+    51%{transform:translateY(-92%); z-index:6}
+    100%{transform:translateY(-14%) scale(1.14); z-index:6}
+  }
+  .letter .tag{font-size:10.5px; letter-spacing:.28em; text-transform:uppercase; color:#b8893b; font-weight:700}
+  .letter h3{font-family:'Great Vibes',cursive; font-weight:400; font-size:clamp(32px,8.5vw,40px); color:var(--rose); line-height:1.05}
+  .letter .msg{font-family:'Cormorant Garamond',serif; font-size:16.5px; line-height:1.3; color:#5a3446; max-width:250px}
+  .letter .go{margin-top:6px; display:inline-flex; align-items:center; gap:6px; text-decoration:none; font:700 13.5px 'Quicksand',sans-serif; color:#fff;
+    background:linear-gradient(135deg,#d77b93,#b14d69); padding:9px 20px; border-radius:999px; box-shadow:0 6px 16px rgba(177,77,105,.35)}
+  .letter .count{font-size:11px; color:#8a6474; min-height:1.2em}
+  .tap{margin-top:34px; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:20px; color:var(--rose); animation:breathe 1.8s ease-in-out infinite; transition:opacity .4s}
+  .open ~ .tap{opacity:0; animation:none}
+  @keyframes breathe{50%{opacity:.45}}
+  .invite footer{margin-top:120px; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:17px; color:#8a6474}
+
+  #confetti{position:fixed; inset:0; pointer-events:none; z-index:30}
+
+  @media (prefers-reduced-motion: reduce){ .petal,.bokeh,.firefly,.star{animation:none} .petals{display:none} }
+</style>
+</head>
+<body>
+
+<!-- Browsers only allow sound after a tap, so this is the "gift wrap" -->
+<div id="start">
+  <div class="small">a little surprise for</div>
+  <div class="name foil">Gayathri</div>
+  <div class="divider"></div>
+  <button id="startBtn">🎁&nbsp; Tap to open</button>
+  <div class="hint">turn your sound on 🔊</div>
+</div>
+
+<button id="mute" aria-label="Mute music">🔊</button>
+<div class="petals" id="petals"></div>
+<canvas id="confetti"></canvas>
+
+<section class="scene" id="scene">
+  <div class="moon"></div>
+  <div class="lights" id="lights">
+    <svg viewBox="0 0 100 40" preserveAspectRatio="none"><path d="M0 4 Q25 34 50 4 Q75 34 100 4" stroke="#5a4a6a" stroke-width=".35" fill="none" vector-effect="non-scaling-stroke"/></svg>
+  </div>
+
+  <div class="title" id="title">
+    <div class="hb">Happy Birthday</div>
+    <div class="nm foil">Gayathri</div>
+    <div class="sub" id="sub">thirty looks beautiful on you ✨</div>
+  </div>
+
+  <!-- 30 rose-gold foil balloons -->
+  <div class="sign" id="sign">
+    <svg viewBox="0 0 260 330">
+      <defs>
+        <linearGradient id="foilG" x1="0" y1="0" x2=".4" y2="1">
+          <stop offset="0" stop-color="#fff0d6"/><stop offset=".28" stop-color="#f5c27f"/>
+          <stop offset=".62" stop-color="#e08a6e"/><stop offset="1" stop-color="#a8435f"/>
+        </linearGradient>
+        <linearGradient id="shineG" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".75"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+        </linearGradient>
+        <radialGradient id="haloG"><stop offset="0" stop-color="#ffe6b0" stop-opacity=".75"/><stop offset="1" stop-color="#ffe6b0" stop-opacity="0"/></radialGradient>
+        <mask id="numMask" maskUnits="userSpaceOnUse" x="0" y="0" width="260" height="330">
+          <text x="130" y="205" text-anchor="middle" font-family="'Baloo 2',sans-serif" font-weight="800" font-size="210" fill="#fff" stroke="#fff" stroke-width="16" stroke-linejoin="round" paint-order="stroke">30</text>
+        </mask>
+      </defs>
+      <!-- strings + gift box -->
+      <path d="M80 215 C70 250 115 270 122 300" stroke="#fff" stroke-opacity=".7" stroke-width="1.4" fill="none"/>
+      <path d="M182 215 C190 250 145 270 138 300" stroke="#fff" stroke-opacity=".7" stroke-width="1.4" fill="none"/>
+      <rect x="110" y="296" width="40" height="30" rx="3" fill="#c95d7a"/>
+      <rect x="106" y="290" width="48" height="10" rx="2" fill="#de7f97"/>
+      <rect x="126" y="290" width="8" height="36" fill="#f4dca8"/>
+      <path d="M130 290 C118 278 112 290 130 290 C148 290 142 278 130 290Z" fill="#f4dca8"/>
+      <g class="float">
+        <ellipse class="halo" cx="130" cy="140" rx="140" ry="120" fill="url(#haloG)"/>
+        <text x="130" y="205" text-anchor="middle" font-family="'Baloo 2',sans-serif" font-weight="800" font-size="210"
+              fill="url(#foilG)" stroke="url(#foilG)" stroke-width="16" stroke-linejoin="round" paint-order="stroke"
+              style="filter:drop-shadow(0 8px 10px rgba(90,30,60,.45))">30</text>
+        <text x="127" y="201" text-anchor="middle" font-family="'Baloo 2',sans-serif" font-weight="800" font-size="210"
+              fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="2.5" stroke-linejoin="round">30</text>
+        <g mask="url(#numMask)">
+          <rect class="shine" x="60" y="0" width="70" height="330" fill="url(#shineG)" transform="skewX(-20)"/>
+        </g>
+        <!-- little heart balloons -->
+        <path d="M24 92 c-10 -12 -26 0 -14 14 l14 14 l14 -14 c12 -14 -4 -26 -14 -14z" fill="#f5a3b8"/>
+        <path d="M24 134 C20 170 40 200 70 250" stroke="#fff" stroke-opacity=".5" fill="none"/>
+        <path d="M242 70 c-8 -10 -21 0 -11 11 l11 11 l11 -11 c10 -11 -3 -21 -11 -11z" fill="#f4dca8"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="girl" id="girl">
+    <div class="age" id="age">Age <b>1</b></div>
+    <svg viewBox="0 0 120 205" aria-label="A little girl walking">
+      <defs>
+        <linearGradient id="dressG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd3e0"/><stop offset="1" stop-color="#f08aa8"/></linearGradient>
+        <linearGradient id="hairG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5b3527"/><stop offset="1" stop-color="#2c1712"/></linearGradient>
+        <radialGradient id="eyeG" cx=".5" cy=".72" r=".75"><stop offset="0" stop-color="#c47a45"/><stop offset=".5" stop-color="#6e3519"/><stop offset="1" stop-color="#2a120a"/></radialGradient>
+      </defs>
+      <ellipse cx="60" cy="199" rx="28" ry="4.5" fill="rgba(40,60,40,.28)"/>
+      <g class="body">
+        <!-- back hair -->
+        <path class="hair-back" fill="url(#hairG)" stroke="var(--line)" stroke-width="1" d="M22 55 Q17 18 60 12 Q103 18 98 55 Q105 98 97 132 Q92 140 86 134 Q80 144 72 138 Q60 146 48 138 Q40 144 34 134 Q28 140 23 132 Q15 98 22 55Z"/>
+        <!-- back arm -->
+        <g class="arm-b">
+          <rect x="72" y="98" width="8" height="37" rx="4" fill="var(--skin-sh)" stroke="var(--line)" stroke-width=".8"/>
+          <circle cx="76" cy="136" r="4.6" fill="var(--skin-sh)" stroke="var(--line)" stroke-width=".8"/>
+        </g>
+        <!-- legs with socks + mary janes -->
+        <g class="leg-r">
+          <rect x="63" y="136" width="9" height="54" rx="4" fill="var(--skin-sh)" stroke="var(--line)" stroke-width=".8"/>
+          <rect x="63.4" y="172" width="8.2" height="16" fill="#fff"/>
+          <path d="M60 189 Q60 184 66 184 L72 184 Q79 185 79 191 Q79 195 70 195 L63 195 Q60 194 60 189Z" fill="#7e2f45" stroke="var(--line)" stroke-width=".8"/>
+        </g>
+        <g class="leg-l">
+          <rect x="47" y="136" width="9" height="54" rx="4" fill="var(--skin)" stroke="var(--line)" stroke-width=".8"/>
+          <rect x="47.4" y="172" width="8.2" height="16" fill="#fff"/>
+          <path d="M42 189 Q42 184 48 184 L54 184 Q61 185 61 191 Q61 195 52 195 L45 195 Q42 194 42 189Z" fill="#93364f" stroke="var(--line)" stroke-width=".8"/>
+        </g>
+        <!-- neck + dress -->
+        <rect x="55" y="82" width="10" height="15" rx="3" fill="var(--skin-sh)"/>
+        <path fill="url(#dressG)" stroke="var(--line)" stroke-width="1" d="M47 94 Q60 89 73 94 L76 114 Q91 136 97 148 Q60 158 23 148 Q29 136 44 114Z"/>
+        <!-- lace hem -->
+        <path fill="#fff" stroke="var(--line)" stroke-width=".6" d="M23 148 Q60 158 97 148 L98 152 q-3 4 -6 1 q-3 4 -6 1 q-3 4 -6 1 q-3 4 -6 1 q-3 4 -6 1 q-3 4 -6 1 q-3 4 -6 1 q-3 4 -6 1 q-3 4 -6 1 q-3 4 -6 1 q-3 4 -6 1 q-3 4 -6 1 q-3 4 -6 1 L22 152Z"/>
+        <!-- sash -->
+        <path d="M44 113 Q60 118 76 113 L77 119 Q60 124 43 119Z" fill="#fff6f0" stroke="var(--line)" stroke-width=".6"/>
+        <path d="M60 116 l-8 -5 l0 10z M60 116 l8 -5 l0 10z" fill="#e06f90" stroke="var(--line)" stroke-width=".5"/>
+        <circle cx="60" cy="116" r="2" fill="#f4dca8"/>
+        <path d="M51 93 Q60 101 69 93 Q65 90 60 92 Q55 90 51 93Z" fill="#fff"/>
+        <!-- front arm (puff sleeve) -->
+        <g class="arm-f">
+          <rect x="40" y="98" width="8" height="37" rx="4" fill="var(--skin)" stroke="var(--line)" stroke-width=".8"/>
+          <circle cx="44" cy="136" r="4.6" fill="var(--skin)" stroke="var(--line)" stroke-width=".8"/>
+          <ellipse cx="45" cy="101" rx="7.5" ry="6.5" fill="#ffc2d4" stroke="var(--line)" stroke-width=".8"/>
+        </g>
+        <!-- head -->
+        <ellipse cx="60" cy="55" rx="33" ry="31" fill="var(--skin)" stroke="var(--line)" stroke-width="1"/>
+        <!-- eyes -->
+        <g class="eyes">
+          <ellipse cx="47" cy="61" rx="7" ry="9" fill="url(#eyeG)"/>
+          <ellipse cx="73" cy="61" rx="7" ry="9" fill="url(#eyeG)"/>
+          <ellipse cx="47" cy="63" rx="3.2" ry="4" fill="#2a120a" opacity=".6"/>
+          <ellipse cx="73" cy="63" rx="3.2" ry="4" fill="#2a120a" opacity=".6"/>
+          <ellipse cx="49.8" cy="57" rx="2.8" ry="3.3" fill="#fff"/><ellipse cx="75.8" cy="57" rx="2.8" ry="3.3" fill="#fff"/>
+          <circle cx="44.6" cy="65.5" r="1.3" fill="#fff"/><circle cx="70.6" cy="65.5" r="1.3" fill="#fff"/>
+          <path d="M38.5 55 Q46 48.5 55 53.5" stroke="#2a120a" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+          <path d="M65 53.5 Q74 48.5 81.5 55" stroke="#2a120a" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+          <path d="M38.5 55 l-3 -2" stroke="#2a120a" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M81.5 55 l3 -2" stroke="#2a120a" stroke-width="1.6" stroke-linecap="round"/>
+        </g>
+        <path d="M42 46.5 Q46 45 50 46.3 M70 46.3 Q74 45 78 46.5" stroke="#4a2a1e" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+        <circle cx="60" cy="49" r="1.5" fill="#c4234a"/>
+        <ellipse cx="38.5" cy="71.5" rx="5.5" ry="2.8" fill="#ff8fa6" opacity=".5"/>
+        <ellipse cx="81.5" cy="71.5" rx="5.5" ry="2.8" fill="#ff8fa6" opacity=".5"/>
+        <path d="M59.6 68 l.8 1.2" stroke="#e0a58e" stroke-width="1" stroke-linecap="round"/>
+        <path d="M55.5 73 Q60 78.5 64.5 73 Q60 74.6 55.5 73Z" fill="#c94a64" stroke="#8e2c44" stroke-width=".7"/>
+        <!-- bangs + side locks -->
+        <path fill="url(#hairG)" stroke="var(--line)" stroke-width="1" d="M27 52 Q27 21 60 19 Q93 21 93 52 Q86 39 79 44 Q75 33 67 42 Q61 31 55 42 Q47 33 42 44 Q34 39 27 52Z"/>
+        <path fill="url(#hairG)" stroke="var(--line)" stroke-width=".8" d="M27 47 Q20 76 29 100 Q35 83 33 56Z"/>
+        <path fill="url(#hairG)" stroke="var(--line)" stroke-width=".8" d="M93 47 Q100 76 91 100 Q85 83 87 56Z"/>
+        <path d="M37 31 Q50 23 66 24" stroke="#c99a82" stroke-width="2.4" fill="none" opacity=".45" stroke-linecap="round"/>
+        <path d="M70 26 Q78 28 83 33" stroke="#c99a82" stroke-width="1.6" fill="none" opacity=".35" stroke-linecap="round"/>
+        <!-- flower clip -->
+        <g transform="translate(85 29)">
+          <circle cx="0" cy="-5" r="4" fill="#fff"/><circle cx="4.8" cy="-1.5" r="4" fill="#fff"/>
+          <circle cx="3" cy="4" r="4" fill="#fff"/><circle cx="-3" cy="4" r="4" fill="#fff"/><circle cx="-4.8" cy="-1.5" r="4" fill="#fff"/>
+          <circle r="2.6" fill="#f4c25a"/>
+          <circle cx="9" cy="6" r="3" fill="#ffc2d4"/>
+        </g>
+      </g>
+    </svg>
+  </div>
+
+  <div class="hills">
+    <svg viewBox="0 0 100 34" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="h1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a98ab8"/><stop offset="1" stop-color="#c9a3bd"/></linearGradient>
+        <linearGradient id="h2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9ec29a"/><stop offset="1" stop-color="#86b285"/></linearGradient>
+        <linearGradient id="h3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8dbb86"/><stop offset="1" stop-color="#7fae7c"/></linearGradient>
+      </defs>
+      <path d="M0 9 Q12 2 26 7 T55 5 T82 3 T100 6 V34 H0Z" fill="url(#h1)" opacity=".85"/>
+      <path d="M0 15 Q22 8 46 13 T100 12 V34 H0Z" fill="url(#h2)"/>
+      <path d="M0 22 Q30 17 62 21 T100 20 V34 H0Z" fill="url(#h3)"/>
+    </svg>
+  </div>
+
+  <div class="scroll-cue" id="cue">something special for you<span>⌄</span></div>
+</section>
+
+<section class="invite" id="invite">
+  <h2>You're Invited</h2>
+  <p class="lead">a little something for my birthday girl</p>
+
+  <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Tap to open the invitation">
+    <div class="env-back"></div>
+    <div class="letter">
+      <div class="tag">Birthday Dinner Date</div>
+      <h3>Dear Gayathri</h3>
+      <div class="msg">Let's celebrate your 30th over a lovely dinner — just you &amp; me. 🕯️</div>
+      <a class="go" id="go" href="#" target="_self">See the location 📍</a>
+      <div class="count" id="count"></div>
+    </div>
+    <div class="env-front"></div>
+    <div class="flap"><div class="face out"></div><div class="face in"></div><div class="seal">G</div></div>
+  </div>
+  <div class="tap">tap to open 💌</div>
+
+  <footer>made with love, just for you ♡</footer>
+</section>
+
+<script>
+/* ======================= EDIT THESE ======================= */
+const CONFIG = {
+  zomatoLink: "https://link.zomato.com/xqzv/diningtrcrystal?id=154364517cd11f45",
+  redirectSeconds: 5                         // auto-open the location after the letter opens (0 = button only)
+};
+/* ========================================================== */
+
+const $ = id => document.getElementById(id);
+const rnd = (a, b) => a + Math.random() * (b - a);
+const hasLink = /^https?:\/\//.test(CONFIG.zomatoLink);
+
+/* ---------------- Decor ---------------- */
+(function decor(){
+  const scene = $('scene');
+  for (let i = 0; i < 55; i++){
+    const s = document.createElement('div'), size = rnd(1, 2.8);
+    s.className = 'star';
+    Object.assign(s.style, {left: rnd(0,100)+'%', top: rnd(0,50)+'%', width: size+'px', height: size+'px',
+      animationDuration: rnd(2,5)+'s', animationDelay: rnd(0,4)+'s', opacity: rnd(.4,1)});
+    scene.appendChild(s);
+  }
+  [['#ffb3c8',18,62,140],['#c9a7ff',72,30,170],['#ffd6a0',40,55,120],['#ff9fbf',85,60,110]].forEach(([c,l,t,s],i)=>{
+    const b = document.createElement('div');
+    b.className = 'bokeh';
+    Object.assign(b.style, {background:c, left:l+'%', top:t+'%', width:s+'px', height:s+'px', animationDelay:(-i*2)+'s'});
+    scene.appendChild(b);
+  });
+  // fairy-light bulbs along the two sagging wires (y = 4 + 60 t(1-t) in a 0..40 box)
+  const lights = $('lights'), cols = ['#ffd27a','#ff9fbf','#bfe3ff','#ffe9b0','#d7b6ff'];
+  let k = 0;
+  for (const seg of [0, 50]) for (let t = .08; t < 1; t += .12){
+    const b = document.createElement('div'), c = cols[k % cols.length];
+    b.className = 'bulb';
+    Object.assign(b.style, {left: (seg + 50*t) + '%', top: ((4 + 60*t*(1-t)) / 40 * 100) + '%', background: c,
+      boxShadow: `0 0 10px 3px ${c}99`, animationDelay: (k * .37 % 2.4) + 's'});
+    lights.appendChild(b); k++;
+  }
+  for (let i = 0; i < 12; i++){
+    const f = document.createElement('div');
+    f.className = 'firefly';
+    Object.assign(f.style, {left: rnd(2,96)+'%', bottom: rnd(4,28)+'%', animationDuration: rnd(3,6)+'s', animationDelay: rnd(0,4)+'s'});
+    scene.appendChild(f);
+  }
+  const petals = $('petals');
+  for (let i = 0; i < 16; i++){
+    const p = document.createElement('div'), s = rnd(.6, 1.3);
+    p.className = 'petal';
+    p.innerHTML = '<i></i>';
+    Object.assign(p.style, {left: rnd(0,100)+'%', animationDuration: rnd(10,18)+'s', animationDelay: (-rnd(0,18))+'s', opacity: rnd(.5,.9)});
+    Object.assign(p.firstChild.style, {transform: `scale(${s})`, animationDuration: rnd(2,4)+'s', width: 12*s+'px', height: 9*s+'px'});
+    petals.appendChild(p);
+  }
+})();
+
+/* ---------------- Music: music-box melody + waltz piano + reverb ---------------- */
+let ctx, bus, master, muted = false;
+const BEAT = 0.52;
+const mtof = n => 440 * Math.pow(2, (n - 69) / 12);
+// Melody in C (3/4 with a one-beat pickup): [MIDI note, beats]
+const MELODY = [
+  [67,.75],[67,.25], [69,1],[67,1],[72,1], [71,2],[67,.75],[67,.25],
+  [69,1],[67,1],[74,1], [72,2],[67,.75],[67,.25],
+  [79,1],[76,1],[72,1], [71,1],[69,1],[77,.75],[77,.25],
+  [76,1],[72,1],[74,1], [72,3]
+];
+// chord per measure (per beat when 3 given); measure k starts at beat 1 + 3k
+const CHORDS = { C:{bass:48, notes:[55,60,64]}, G7:{bass:43, notes:[53,59,62]}, F:{bass:41, notes:[57,60,65]} };
+const MEASURES = [['C'],['G7'],['G7'],['C'],['C'],['F'],['C','C','G7'],['C']];
+const SONG_BEATS = MELODY.reduce((a, n) => a + n[1], 0);   // 25
+const LAST_NOTE_AT = (SONG_BEATS - 3) * BEAT;                 // final "you"
+
+function impulse(sec, decay){
+  const len = ctx.sampleRate * sec, buf = ctx.createBuffer(2, len, ctx.sampleRate);
+  for (let ch = 0; ch < 2; ch++){
+    const d = buf.getChannelData(ch);
+    for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, decay);
+  }
+  return buf;
+}
+function initAudio(){
+  ctx = new (window.AudioContext || window.webkitAudioContext)();
+  master = ctx.createGain(); master.gain.value = .9;
+  const comp = ctx.createDynamicsCompressor();
+  comp.threshold.value = -18; comp.ratio.value = 3;
+  bus = ctx.createGain();
+  const dry = ctx.createGain(); dry.gain.value = .85;
+  const verb = ctx.createConvolver(); verb.buffer = impulse(2.6, 2.4);
+  const wet = ctx.createGain(); wet.gain.value = .32;
+  bus.connect(dry); dry.connect(comp);
+  bus.connect(verb); verb.connect(wet); wet.connect(comp);
+  comp.connect(master); master.connect(ctx.destination);
+}
+function partial(freq, t, vol, decay, type = 'sine', attack = .004){
+  const o = ctx.createOscillator(), g = ctx.createGain();
+  o.type = type; o.frequency.value = freq;
+  g.gain.setValueAtTime(0, t);
+  g.gain.linearRampToValueAtTime(vol, t + attack);
+  g.gain.exponentialRampToValueAtTime(.0001, t + decay);
+  o.connect(g); g.connect(bus);
+  o.start(t); o.stop(t + decay + .05);
+}
+// music-box / celesta: bright inharmonic partials over a warm fundamental
+function bell(n, t, vol){
+  const f = mtof(n);
+  [[1,1,2.4],[2,.32,1.3],[3,.1,.7],[4.16,.07,.4],[5.43,.03,.25]].forEach(([m,a,d]) => partial(f*m, t, vol*a, d));
+}
+// soft felt piano for the accompaniment
+function piano(n, t, vol, dur = 1.1){
+  const f = mtof(n), o = ctx.createOscillator(), lp = ctx.createBiquadFilter(), g = ctx.createGain();
+  o.type = 'triangle'; o.frequency.value = f;
+  lp.type = 'lowpass'; lp.frequency.setValueAtTime(2200, t); lp.frequency.exponentialRampToValueAtTime(500, t + dur);
+  g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(vol, t + .01); g.gain.exponentialRampToValueAtTime(.0001, t + dur);
+  o.connect(lp); lp.connect(g); g.connect(bus); o.start(t); o.stop(t + dur + .05);
+  partial(f * 2, t, vol * .25, dur * .5);
+}
+// warm sustained pad under the melody
+function pad(n, t, dur, vol){
+  const o = ctx.createOscillator(), g = ctx.createGain();
+  o.type = 'sine'; o.frequency.value = mtof(n);
+  g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(vol, t + .08);
+  g.gain.setTargetAtTime(0, t + dur * .85, .15);
+  o.connect(g); g.connect(bus); o.start(t); o.stop(t + dur + 1);
+}
+function playSong(start){
+  let t = start;
+  for (const [n, b] of MELODY){
+    bell(n + 12, t, .2);           // music box an octave up
+    pad(n, t, b * BEAT, .06);       // warmth in the middle
+    t += b * BEAT;
+  }
+  MEASURES.forEach((m, k) => {
+    const mt = start + (1 + 3 * k) * BEAT;
+    for (let beat = 0; beat < 3; beat++){
+      const ch = CHORDS[m[Math.min(beat, m.length - 1)]], bt = mt + beat * BEAT;
+      if (k === MEASURES.length - 1){       // final bar: rolled chord
+        if (beat === 0){ piano(ch.bass, bt, .2, 2.5); ch.notes.forEach((x, i) => piano(x, bt + .06 * (i + 1), .07, 2.5)); }
+        continue;
+      }
+      if (beat === 0) piano(ch.bass, bt, .2, 1.4);
+      else ch.notes.forEach(x => piano(x, bt, .055, .8));
+    }
+  });
+  // sparkle arpeggio to finish
+  const end = start + SONG_BEATS * BEAT;
+  [84, 88, 91, 96].forEach((n, i) => bell(n, end - 1.2 + i * .14, .08));
+  return end;
+}
+function loopSong(){
+  const end = playSong(ctx.currentTime + .15);
+  setTimeout(loopSong, (end - ctx.currentTime + 3) * 1000);
+}
+$('mute').onclick = () => {
+  muted = !muted;
+  master.gain.setTargetAtTime(muted ? 0 : .9, ctx.currentTime, .1);
+  $('mute').textContent = muted ? '🔇' : '🔊';
+};
+
+/* ---------------- Walk to 30 ---------------- */
+const flowers = ['🌸','🌷','🌼','🌺','💮'];
+function walk(duration){
+  const scene = $('scene'), girl = $('girl'), sign = $('sign'), age = $('age');
+  girl.classList.add('walking'); age.classList.add('show');
+  let t0 = null, last = 0;
+  function frame(ts){
+    if (!t0) t0 = ts;
+    const p = Math.min(1, (ts - t0) / duration);
+    const startX = -girl.offsetWidth;
+    const endX = sign.offsetLeft - girl.offsetWidth * 1.05;
+    const x = startX + (endX - startX) * p;
+    girl.style.transform = `translateX(${x}px) scale(${.62 + .38 * p})`;   // grows up along the way
+    const a = Math.max(1, Math.round(1 + 29 * p));
+    if (a !== last){
+      last = a; age.innerHTML = 'Age <b>' + a + '</b>';
+      if (a % 3 === 0 && x > 0){
+        const f = document.createElement('div');
+        f.className = 'flower';
+        f.textContent = flowers[a % flowers.length];
+        f.style.left = (x + girl.offsetWidth * .3) + 'px';
+        f.style.bottom = (scene.offsetHeight * .125 - 2) + 'px';
+        scene.appendChild(f);
+      }
+    }
+    if (p < 1) requestAnimationFrame(frame); else arrive();
+  }
+  requestAnimationFrame(frame);
+}
+function arrive(){
+  const girl = $('girl');
+  girl.classList.remove('walking'); girl.classList.add('celebrate');
+  $('age').innerHTML = '<b>30</b> 🎉';
+  $('sign').classList.add('lit');
+  $('sub').classList.add('show');
+  confetti(200);
+  setTimeout(() => $('cue').classList.add('show'), 2000);
+}
+
+/* ---------------- Start ---------------- */
+let started = false;
+function start(){
+  if (started) return; started = true;
+  if (!ctx) initAudio();
+  ctx.resume();
+  $('start').classList.add('hide');
+  $('mute').classList.add('show');
+  $('title').classList.add('show');
+  loopSong();
+  walk(LAST_NOTE_AT * 1000 + 150);   // arrives at 30 on the final "to you"
+}
+$('startBtn').addEventListener('click', start);
+try { initAudio(); if (ctx.state === 'running') start(); } catch (e) {}
+
+/* ---------------- Invitation ---------------- */
+const env = $('envelope'), go = $('go'), count = $('count');
+if (hasLink) go.href = CONFIG.zomatoLink;
+go.addEventListener('click', e => { if (!hasLink){ e.preventDefault(); count.textContent = 'location coming soon 😉'; } });
+function openEnvelope(){
+  if (env.classList.contains('open')) return;
+  env.classList.add('open');
+  if (ctx) [79, 84, 88].forEach((n, i) => bell(n + 12, ctx.currentTime + .8 + i * .12, .1));   // little chime
+  setTimeout(() => confetti(130, env), 1600);
+  if (hasLink && CONFIG.redirectSeconds > 0){
+    let s = CONFIG.redirectSeconds;
+    setTimeout(function tick(){
+      count.textContent = `opening the location in ${s}…`;
+      if (s-- <= 0){ window.location.href = CONFIG.zomatoLink; return; }
+      setTimeout(tick, 1000);
+    }, 2600);
+  }
+}
+env.addEventListener('click', openEnvelope);
+env.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openEnvelope(); } });
+
+/* ---------------- Confetti (ribbons, dots, hearts) ---------------- */
+const cv = $('confetti'), cx = cv.getContext('2d');
+let parts = [], running = false;
+function resize(){ cv.width = innerWidth * devicePixelRatio; cv.height = innerHeight * devicePixelRatio; cx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0); }
+addEventListener('resize', resize); resize();
+function heart(s){ cx.beginPath(); cx.moveTo(0, s*.3); cx.bezierCurveTo(-s, -s*.4, -s*.4, -s, 0, -s*.35); cx.bezierCurveTo(s*.4, -s, s, -s*.4, 0, s*.3); cx.fill(); }
+function confetti(n, el){
+  const r = el ? el.getBoundingClientRect() : {left: innerWidth/2, top: innerHeight*.35, width: 0, height: 0};
+  const ox = r.left + r.width/2, oy = r.top + r.height/3;
+  const cols = ['#f7a6bd','#f4dca8','#e8c27a','#ffffff','#d7b6ff','#ff8fa6'];
+  for (let i = 0; i < n; i++){
+    const a = Math.random() * Math.PI * 2, v = rnd(3, 10);
+    parts.push({x: ox, y: oy, vx: Math.cos(a)*v, vy: Math.sin(a)*v - 5, s: rnd(5, 10), rot: rnd(0, 6), vr: rnd(-.2, .2),
+      c: cols[i % cols.length], shape: i % 5 === 0 ? 'h' : i % 3 === 0 ? 'c' : 'r', life: 0});
+  }
+  if (!running){ running = true; requestAnimationFrame(draw); }
+}
+function draw(){
+  cx.clearRect(0, 0, innerWidth, innerHeight);
+  parts = parts.filter(p => p.life < 280 && p.y < innerHeight + 20);
+  for (const p of parts){
+    p.life++; p.vy += .16; p.vx *= .985; p.vy *= .995; p.x += p.vx + Math.sin(p.life / 10) * .4; p.y += p.vy; p.rot += p.vr;
+    cx.save(); cx.translate(p.x, p.y); cx.rotate(p.rot); cx.globalAlpha = Math.max(0, 1 - p.life / 280); cx.fillStyle = p.c;
+    if (p.shape === 'h') heart(p.s);
+    else if (p.shape === 'c'){ cx.beginPath(); cx.arc(0, 0, p.s/2.5, 0, 7); cx.fill(); }
+    else cx.fillRect(-p.s/2, -p.s/4, p.s, p.s/2 * Math.abs(Math.cos(p.life / 8)) + 1);
+    cx.restore();
+  }
+  if (parts.length) requestAnimationFrame(draw); else { running = false; cx.clearRect(0, 0, innerWidth, innerHeight); }
+}
+</script>
+</body>
+</html>
